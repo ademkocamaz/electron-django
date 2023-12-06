@@ -36,7 +36,22 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = () => {
-  startDjangoServer();
+
+  const splashWindow = new BrowserWindow({
+    show:false,
+    width: 300,
+    height: 300,
+    center:true,
+    frame:false,
+    hasShadow:true,
+  });
+
+  splashWindow.loadFile(path.join(__dirname, 'splash.html'));
+  splashWindow.once('ready-to-show', function () {
+    splashWindow.show();
+    startDjangoServer();
+  });
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     show: false,
@@ -47,8 +62,6 @@ const createWindow = () => {
     },
   });
 
-  // and load the index.html of the app.
-  //mainWindow.loadFile(path.join(__dirname, 'index.html'));
   const http = require('node:http')
 
   const options = {
@@ -64,11 +77,10 @@ const createWindow = () => {
       // console.log('headers:', response.headers);
 
       mainWindow.loadURL('http://127.0.0.1:1408');
-
       mainWindow.once('ready-to-show', function () {
+        splashWindow.close();
         mainWindow.show();
       });
-
       // Open the DevTools.
       // mainWindow.webContents.openDevTools();
       
