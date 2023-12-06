@@ -1,8 +1,12 @@
+altgraph==0.17.4
 asgiref==3.7.2
 Django==5.0
 django-filter==23.5
 djangorestframework==3.14.0
 Markdown==3.5.1
+packaging==23.2
+pyinstaller==6.2.0
+pyinstaller-hooks-contrib==2023.10
 pytz==2023.3.post1
 setuptools==69.0.2
 sqlparse==0.4.4

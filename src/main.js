@@ -38,12 +38,12 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
 
   const splashWindow = new BrowserWindow({
-    show:false,
+    show: false,
     width: 300,
     height: 300,
-    center:true,
-    frame:false,
-    hasShadow:true,
+    center: true,
+    frame: false,
+    hasShadow: true,
   });
 
   splashWindow.loadFile(path.join(__dirname, 'splash.html'));
@@ -83,7 +83,7 @@ const createWindow = () => {
       });
       // Open the DevTools.
       // mainWindow.webContents.openDevTools();
-      
+
     }).on('error', function (error) {
       // console.log('check_error:', error);
       setTimeout(check, 1000);
