@@ -1,10 +1,11 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-
 const { spawn } = require('node:child_process');
 
+// console.log('path:', app.getAppPath());
+
 const startDjangoServer = () => {
-  const djangoBackend = spawn('python', ['manage.py', 'runserver', '1408', '--noreload']);
+  const djangoBackend = spawn(path.join(process.resourcesPath, 'manage'), ['runserver', '1408', '--noreload']);
 
   //djangoBackend.stdout.pipe(process.stdout)
 

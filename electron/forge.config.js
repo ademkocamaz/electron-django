@@ -1,6 +1,10 @@
 module.exports = {
   packagerConfig: {
     asar: true,
+    extraResource: [
+      './_internal',
+      './manage',
+    ],
   },
   rebuildConfig: {},
   makers: [
