@@ -9,7 +9,7 @@ const startDjangoServer = () => {
 
   //djangoBackend.stdout.pipe(process.stdout)
 
-  process.on('exit', function () {
+  app.on('before-quit', function () {
     djangoBackend.kill();
   });
 
@@ -56,6 +56,7 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     show: false,
+    center:true,
     width: 800,
     height: 600,
     webPreferences: {

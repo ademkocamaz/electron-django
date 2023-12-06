@@ -2,8 +2,8 @@ module.exports = {
   packagerConfig: {
     asar: true,
     extraResource: [
-      './_internal',
-      './manage',
+      '../django/dist/manage/_internal',
+      '../django/dist/manage/manage',
     ],
   },
   rebuildConfig: {},
